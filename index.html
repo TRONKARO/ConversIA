@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConversIA — Automatización Conversacional para WhatsApp</title>
+    <meta name="description"
+        content="Transformamos la atención, ventas y operaciones de tu empresa mediante IA conversacional en WhatsApp. Diagnóstico gratuito disponible." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="ConversIA Logo" class="logo-img" />
+                <span class="logo-text">Convers<span class="accent">IA</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicios" class="nav-link">Soluciones</a></li>
+                <li><a href="#proceso" class="nav-link">Proceso</a></li>
+                <li><a href="#industrias" class="nav-link">Industrias</a></li>
+                <li><a href="#integraciones" class="nav-link">Tecnología</a></li>
+                <li><a href="#casos" class="nav-link">Casos de Uso</a></li>
+                <li><a href="#contacto" class="btn-primary btn-sm">Agendar Demo</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#servicios" class="mobile-link">Soluciones</a>
+        <a href="#proceso" class="mobile-link">Proceso</a>
+        <a href="#industrias" class="mobile-link">Industrias</a>
+        <a href="#integraciones" class="mobile-link">Tecnología</a>
+        <a href="#casos" class="mobile-link">Casos de Uso</a>
+        <a href="#contacto" class="btn-primary" style="text-align:center;margin-top:1rem;">Agendar Demo</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-container">
+            <div class="hero-content animate-fade-up">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    💬 IA Conversacional para WhatsApp Business
+                </div>
+                <h1 class="hero-title">
+                    Automatizá la atención<br />
+                    <span class="gradient-text">que sí genera resultados</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transformamos las conversaciones de tu empresa en motores de ventas, atención y operaciones — usando
+                    IA en WhatsApp, sin perder el toque humano.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#contacto" class="btn-primary btn-glow" id="heroCta">Agendar Diagnóstico Gratis</a>
+                    <a href="#servicios" class="btn-outline">Ver Soluciones →</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value-row"><span class="stat-num" data-target="87">0</span><span
+                                class="stat-suffix">%</span></div>
+                        <span class="stat-label">Reducción en tiempo de respuesta</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-value-row"><span class="stat-num" data-target="3">0</span><span
+                                class="stat-suffix">x</span></div>
+                        <span class="stat-label">Más leads calificados</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-value-row"><span class="stat-num" data-target="24">0</span><span
+                                class="stat-suffix">/7</span></div>
+                        <span class="stat-label">Atención automatizada</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual animate-fade-rotate">
+                <div class="hero-image-wrapper">
+                    <img src="images/hero_visual.png" alt="ConversIA plataforma" class="hero-img" />
+                    <div class="hero-glow-ring"></div>
+                </div>
+                <!-- Floating cards -->
+                <div class="float-card float-card-1">
+                    <span class="float-icon">✅</span>
+                    <div>
+                        <strong>Lead calificado</strong>
+                        <small>Hace 2 min · WhatsApp</small>
+                    </div>
+                </div>
+                <div class="float-card float-card-2">
+                    <span class="float-icon">📅</span>
+                    <div>
+                        <strong>Turno agendado</strong>
+                        <small>Automático · Sin agente</small>
+                    </div>
+                </div>
+                <div class="float-card float-card-3">
+                    <span class="float-icon">🤖</span>
+                    <div>
+                        <strong>IA activa</strong>
+                        <small>Respondiendo en &lt;10s</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOCIAL PROOF ===== -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="proof-label">Tecnología de clase mundial que potencia nuestras soluciones</p>
+            <div class="logos-row">
+                <div class="logo-badge">WhatsApp Business API</div>
+                <div class="logo-badge">Botmaker</div>
+                <div class="logo-badge">OpenAI GPT-4</div>
+                <div class="logo-badge">Meta Business</div>
+                <div class="logo-badge">Zapier</div>
+                <div class="logo-badge">Google Sheets</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS / FLIP CARDS ===== -->
+    <section class="section" id="servicios">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">⚡ SOLUCIONES</span>
+                <h2 class="section-title">Automatizá cada punto de contacto</h2>
+                <p class="section-subtitle">Desde el primer mensaje hasta el postventa — tocá cada solución para
+                    descubrir cómo funciona.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_1.png" alt="Automatización de Leads" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">🎯</div>
+                                <h3 class="service-title-front">Captación de Leads</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">🎯</div>
+                            <h3 class="service-title-back">Captación de Leads</h3>
+                            <p class="service-description">Calificá leads automáticamente 24/7. El bot hace las
+                                preguntas correctas, filtra prospectos y los pasa al equipo de ventas listos para
+                                cerrar.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Calificación inteligente</span>
+                                <span class="feature-tag">CRM Integration</span>
+                                <span class="feature-tag">Seguimiento automático</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_2.png" alt="Atención al Cliente" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">💬</div>
+                                <h3 class="service-title-front">Atención al Cliente</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">💬</div>
+                            <h3 class="service-title-back">Atención al Cliente</h3>
+                            <p class="service-description">Respondé consultas frecuentes, derivá casos complejos al
+                                agente correcto y medí la satisfacción — todo desde WhatsApp.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">FAQ automatizado</span>
+                                <span class="feature-tag">Derivación inteligente</span>
+                                <span class="feature-tag">CSAT integrado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_3.png" alt="Agendamiento de Turnos" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">📅</div>
+                                <h3 class="service-title-front">Agendamiento de Turnos</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">📅</div>
+                            <h3 class="service-title-back">Agendamiento de Turnos</h3>
+                            <p class="service-description">Tus clientes agendan, modifican y cancelan turnos por
+                                WhatsApp sin intervención humana. Recordatorios automáticos incluidos.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Google Calendar</span>
+                                <span class="feature-tag">Recordatorios</span>
+                                <span class="feature-tag">Gestión 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_4.png" alt="E-commerce WhatsApp" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">🛒</div>
+                                <h3 class="service-title-front">Ventas por WhatsApp</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">🛒</div>
+                            <h3 class="service-title-back">Ventas por WhatsApp</h3>
+                            <p class="service-description">Catálogo interactivo, proceso de compra guiado y seguimiento
+                                de pedidos — convierte WhatsApp en tu canal de ventas más eficiente.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Catálogo dinámico</span>
+                                <span class="feature-tag">Pagos integrados</span>
+                                <span class="feature-tag">Tracking de pedidos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_5.png" alt="Inmobiliaria" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">🏢</div>
+                                <h3 class="service-title-front">Sector Inmobiliario</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">🏢</div>
+                            <h3 class="service-title-back">Sector Inmobiliario</h3>
+                            <p class="service-description">Calificá potenciales compradores o inquilinos, compartí
+                                propiedades automáticamente y agendá visitas sin intervención manual.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Filtro de propiedades</span>
+                                <span class="feature-tag">Visitas automáticas</span>
+                                <span class="feature-tag">Seguimiento CRM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card-flip animate-reveal">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_6.png" alt="Integraciones y Analytics" class="service-image" />
+                            <div class="service-overlay">
+                                <div class="card-hint">Tocá para descubrir ✦</div>
+                                <div class="service-icon-front">📊</div>
+                                <h3 class="service-title-front">Analytics & Datos</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <div class="service-icon-back">📊</div>
+                            <h3 class="service-title-back">Analytics & Datos</h3>
+                            <p class="service-description">Dashboards en tiempo real con métricas de conversación, tasa
+                                de resolución, satisfacción y ROI de tu automatización.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Dashboard en vivo</span>
+                                <span class="feature-tag">Reportes automáticos</span>
+                                <span class="feature-tag">Optimización continua</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESO ===== -->
+    <section class="section section-dark" id="proceso">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">🔄 METODOLOGÍA</span>
+                <h2 class="section-title">Del diagnóstico al resultado en 4 pasos</h2>
+                <p class="section-subtitle">Un proceso probado que minimiza riesgos y maximiza el retorno desde el
+                    primer mes.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step animate-reveal">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">🔍</div>
+                    <h3 class="step-title">Diagnóstico</h3>
+                    <p class="step-desc">Analizamos tu flujo de atención actual, identificamos cuellos de botella y
+                        oportunidades de automatización con el mayor ROI.</p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="process-step animate-reveal">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">✏️</div>
+                    <h3 class="step-title">Diseño</h3>
+                    <p class="step-desc">Diseñamos los flujos conversacionales, el tono de comunicación y la
+                        arquitectura de tu bot alineados a tu marca.</p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="process-step animate-reveal">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">⚙️</div>
+                    <h3 class="step-title">Implementación</h3>
+                    <p class="step-desc">Configuramos la plataforma, integramos tus sistemas existentes (CRM, ERP,
+                        calendario) y hacemos pruebas exhaustivas.</p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="process-step animate-reveal">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">📈</div>
+                    <h3 class="step-title">Optimización</h3>
+                    <p class="step-desc">Monitoreamos métricas, mejoramos los flujos con base en datos reales y
+                        escalamos a medida que crece tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INDUSTRIAS ===== -->
+    <section class="section" id="industrias">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">🏭 INDUSTRIAS</span>
+                <h2 class="section-title">Soluciones por sector</h2>
+                <p class="section-subtitle">Módulos preconstruidos y personalizables para cada industria, listos para
+                    implementar en semanas.</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🏠</div>
+                    <h3 class="industry-name">Inmobiliaria</h3>
+                    <ul class="industry-features">
+                        <li>Calificación automática de compradores</li>
+                        <li>Envío de propiedades según perfil</li>
+                        <li>Agendamiento de visitas</li>
+                        <li>Seguimiento postventa</li>
+                    </ul>
+                    <div class="industry-badge">Más solicitado</div>
+                </div>
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🏥</div>
+                    <h3 class="industry-name">Salud & Turnos</h3>
+                    <ul class="industry-features">
+                        <li>Reserva y cancelación de turnos</li>
+                        <li>Recordatorios automáticos</li>
+                        <li>Pre-consulta por WhatsApp</li>
+                        <li>Historia clínica básica</li>
+                    </ul>
+                </div>
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🛍️</div>
+                    <h3 class="industry-name">E-commerce</h3>
+                    <ul class="industry-features">
+                        <li>Catálogo interactivo por chat</li>
+                        <li>Seguimiento de pedidos</li>
+                        <li>Recuperación de carritos</li>
+                        <li>Post-venta y reseñas</li>
+                    </ul>
+                </div>
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🎓</div>
+                    <h3 class="industry-name">Educación</h3>
+                    <ul class="industry-features">
+                        <li>Captación de inscripciones</li>
+                        <li>Información de cursos y horarios</li>
+                        <li>Recordatorios de clases</li>
+                        <li>Soporte a alumnos 24/7</li>
+                    </ul>
+                </div>
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🍽️</div>
+                    <h3 class="industry-name">Gastronomía</h3>
+                    <ul class="industry-features">
+                        <li>Pedidos por WhatsApp</li>
+                        <li>Reservas automáticas</li>
+                        <li>Menú dinámico interactivo</li>
+                        <li>Programas de fidelización</li>
+                    </ul>
+                </div>
+                <div class="industry-card glass-card animate-reveal">
+                    <div class="industry-icon">🤝</div>
+                    <h3 class="industry-name">Consultoría & B2B</h3>
+                    <ul class="industry-features">
+                        <li>Calificación de prospectos</li>
+                        <li>Agendamiento de reuniones</li>
+                        <li>Envío de propuestas</li>
+                        <li>Nurturing automatizado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTEGRACIONES ===== -->
+    <section class="section section-dark" id="integraciones">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">🔌 TECNOLOGÍA</span>
+                <h2 class="section-title">Se integra con tus herramientas</h2>
+                <p class="section-subtitle">Conectamos nuestras soluciones con los sistemas que ya usás, sin fricciones.
+                </p>
+            </div>
+            <div class="integrations-grid">
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">💚</div>
+                    <span>WhatsApp Business API</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">🤖</div>
+                    <span>Botmaker</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">🧠</div>
+                    <span>OpenAI GPT-4</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">📊</div>
+                    <span>Google Sheets</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">⚡</div>
+                    <span>Zapier / Make</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">📅</div>
+                    <span>Google Calendar</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">🏢</div>
+                    <span>HubSpot CRM</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">💰</div>
+                    <span>MercadoPago</span>
+                </div>
+                <div class="integration-item animate-reveal">
+                    <div class="int-icon">📦</div>
+                    <span>Shopify / WooCommerce</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASOS DE USO ===== -->
+    <section class="section" id="casos">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">📋 CASOS DE USO</span>
+                <h2 class="section-title">Flujos que cambian el negocio</h2>
+                <p class="section-subtitle">Ejemplos reales de lo que implementamos para nuestros clientes.</p>
+            </div>
+            <div class="cases-grid">
+                <div class="case-card glass-card animate-reveal">
+                    <div class="case-tag">Inmobiliaria</div>
+                    <h3 class="case-title">De lead a visita en 5 minutos</h3>
+                    <p class="case-desc">Un potencial comprador escribe por WhatsApp, el bot califica su perfil, le
+                        muestra propiedades que coinciden y agenda la visita — sin ningún agente involucrado.</p>
+                    <div class="case-metric">
+                        <span class="metric-num">72%</span>
+                        <span class="metric-label">de visitas agendadas automáticamente</span>
+                    </div>
+                </div>
+                <div class="case-card glass-card animate-reveal">
+                    <div class="case-tag">E-commerce</div>
+                    <h3 class="case-title">Recuperación de carritos abandonados</h3>
+                    <p class="case-desc">El sistema detecta carritos abandonados y envía un mensaje personalizado a las
+                        2 horas por WhatsApp con un incentivo. La conversión supera al email en 4x.</p>
+                    <div class="case-metric">
+                        <span class="metric-num">38%</span>
+                        <span class="metric-label">de recuperación de ventas perdidas</span>
+                    </div>
+                </div>
+                <div class="case-card glass-card animate-reveal">
+                    <div class="case-tag">Salud</div>
+                    <h3 class="case-title">Cero ausencias en la clínica</h3>
+                    <p class="case-desc">Recordatorios automáticos 48hs y 2hs antes del turno, con opción de confirmar o
+                        reprogramar por WhatsApp. El sistema reasigna los turnos cancelados al instante.</p>
+                    <div class="case-metric">
+                        <span class="metric-num">61%</span>
+                        <span class="metric-label">reducción en ausentismo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="section section-dark" id="testimonios">
+        <div class="container">
+            <div class="section-header animate-reveal">
+                <span class="section-tag">⭐ TESTIMONIOS</span>
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-card animate-reveal">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"En menos de 3 semanas teníamos el bot funcionando. Ahora el 80% de las
+                        consultas se resuelven sin que toque el teléfono."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div>
+                            <strong>Marcos R.</strong>
+                            <small>Director Comercial · Inmobiliaria del Norte</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card animate-reveal">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"El agendamiento automático nos cambió la vida. Nuestro equipo dejó de
+                        perder tiempo en llamadas y se enfoca en atender pacientes."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LA</div>
+                        <div>
+                            <strong>Luciana A.</strong>
+                            <small>Administradora · Centro de Estética Avanzada</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card animate-reveal">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Duplicamos las ventas por WhatsApp sin contratar más personal. La IA
+                        entiende lo que el cliente busca mejor que varios vendedores."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FG</div>
+                        <div>
+                            <strong>Felipe G.</strong>
+                            <small>CEO · TiendaRápida E-commerce</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="cta-section" id="contacto">
+        <div class="cta-glow"></div>
+        <div class="container">
+            <div class="cta-content animate-reveal">
+                <span class="section-tag">🚀 EMPEZÁ HOY</span>
+                <h2 class="cta-title">¿Tu empresa sigue respondiendo mensajes a mano?</h2>
+                <p class="cta-subtitle">Agendá un diagnóstico gratuito. En 30 minutos te mostramos cuánto podés
+                    automatizar y qué impacto tendría en tu negocio.</p>
+                <div class="cta-form" id="ctaForm">
+                    <input type="text" id="userName" placeholder="Tu nombre" class="cta-input" />
+                    <input type="text" id="userCompany" placeholder="Empresa / Industria" class="cta-input" />
+                    <input type="email" id="userEmail" placeholder="Email (opcional)"
+                        class="cta-input cta-input-optional" />
+                    <button class="btn-primary btn-glow btn-lg" id="ctaBtn" onclick="submitForm()">
+                        Quiero mi Diagnóstico Gratis ✨
+                    </button>
+                </div>
+                <p class="cta-disclaimer">Sin compromiso. Atendemos en menos de 24hs hábiles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="ConversIA" class="logo-img" />
+                        <span class="logo-text">Convers<span class="accent">IA</span></span>
+                    </div>
+                    <p class="footer-tagline">Transformamos conversaciones en resultados de negocio mediante IA aplicada
+                        en WhatsApp.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Instagram">ig</a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">wa</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Soluciones</h4>
+                    <a href="#servicios" class="footer-link">Captación de Leads</a>
+                    <a href="#servicios" class="footer-link">Atención al Cliente</a>
+                    <a href="#servicios" class="footer-link">Agendamiento</a>
+                    <a href="#servicios" class="footer-link">E-commerce</a>
+                    <a href="#servicios" class="footer-link">Analytics</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Industrias</h4>
+                    <a href="#industrias" class="footer-link">Inmobiliaria</a>
+                    <a href="#industrias" class="footer-link">Salud</a>
+                    <a href="#industrias" class="footer-link">E-commerce</a>
+                    <a href="#industrias" class="footer-link">Educación</a>
+                    <a href="#industrias" class="footer-link">Gastronomía</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Empresa</h4>
+                    <a href="#proceso" class="footer-link">Nuestro Proceso</a>
+                    <a href="#integraciones" class="footer-link">Tecnología</a>
+                    <a href="#casos" class="footer-link">Casos de Uso</a>
+                    <a href="#contacto" class="footer-link">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 ConversIA. Todos los derechos reservados.</p>
+                <p class="footer-sub">Automatización Conversacional · Buenos Aires, Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
