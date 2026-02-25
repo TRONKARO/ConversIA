@@ -146,41 +146,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 5));
 
-    // ===== CTA FORM SUBMIT =====
-    // ⚠️ Reemplazá TU_NUMERO por tu número en formato internacional
-    // Ejemplo Argentina: 5491155556666  (54 + 9 + área sin 0 + número sin 15)
-    const WHATSAPP_NUMBER = '541151257006';
+    // ===== CTA FORM SUBMIT → n8n webhook =====
+    const N8N_WEBHOOK = 'https://troncarotest.app.n8n.cloud/webhook/retell-leads';
+    const RATE_LIMIT_MS = 60 * 1000;
 
-    window.submitForm = function () {
+    const isValidEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    const isValidPhone = v => /^\+\d{7,}$/.test(v.replace(/[\s\-().]/g, ''));
+
+    function markField(id, valid) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.borderColor = valid ? '' : 'rgba(239,68,68,0.7)';
+        el.style.boxShadow = valid ? '' : '0 0 0 3px rgba(239,68,68,0.15)';
+    }
+    function clearFieldErrors() {
+        ['userName', 'userPhone', 'userEmail', 'userMessage'].forEach(id => markField(id, true));
+    }
+
+    window.submitForm = async function () {
+        clearFieldErrors();
+
         const name = document.getElementById('userName').value.trim();
-        const company = document.getElementById('userCompany').value.trim();
+        const phone = document.getElementById('userPhone').value.trim();
         const email = document.getElementById('userEmail').value.trim();
+        const message = document.getElementById('userMessage').value.trim();
 
-        if (!name || !company) {
-            showToast('Por favor completá tu nombre y empresa.', 'warning');
+        // Honeypot anti-bot
+        const honey = document.getElementById('_hp_field');
+        if (honey && honey.value) return;
+
+        // Rate limiting
+        const lastSubmit = Number(localStorage.getItem('conversiaLastSubmit') || 0);
+        const elapsed = Date.now() - lastSubmit;
+        if (elapsed < RATE_LIMIT_MS) {
+            const wait = Math.ceil((RATE_LIMIT_MS - elapsed) / 1000);
+            showToast(`Esperá ${wait}s antes de volver a enviar.`, 'warning');
             return;
         }
 
-        // Arma el mensaje — email aparece solo si fue completado
-        const emailLine = email ? `📧 Email: ${email}\n` : '';
-        const message = `Hola ConversIA! 👋 Me interesa el diagnóstico gratuito.\n\n` +
-            `📛 Nombre: ${name}\n` +
-            `🏢 Empresa / Rubro: ${company}\n` +
-            emailLine +
-            `\n¿Cuándo podemos hablar?`;
-
-        const encodedMsg = encodeURIComponent(message);
-        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+        // Validaciones
+        let valid = true;
+        if (!name) { markField('userName', false); valid = false; }
+        if (!isValidPhone(phone)) { markField('userPhone', false); valid = false; }
+        if (!isValidEmail(email)) { markField('userEmail', false); valid = false; }
+        if (!valid) {
+            showToast('Revisá los campos marcados en rojo.', 'warning');
+            return;
+        }
 
         const btn = document.getElementById('ctaBtn');
-        btn.textContent = '✅ Abriendo WhatsApp...';
-        btn.style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';
+        const originalText = btn.textContent;
+        btn.textContent = '⏳ Enviando...';
         btn.disabled = true;
 
-        showToast('¡Redirigiendo a WhatsApp, ' + name + '!', 'success');
+        try {
+            const response = await fetch(N8N_WEBHOOK, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre: name, telefono: phone, email, mensaje: message })
+            });
 
-        // Pequeño delay para que el usuario vea el feedback
-        setTimeout(() => { window.open(waUrl, '_blank'); }, 800);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            localStorage.setItem('conversiaLastSubmit', Date.now());
+
+            btn.textContent = '✅ ¡Mensaje enviado!';
+            btn.style.background = 'linear-gradient(135deg, #16a34a, #22c55e)';
+            showToast('¡Gracias ' + name + '! Te contactamos pronto 🚀', 'success');
+
+            ['userName', 'userPhone', 'userEmail', 'userMessage'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 4000);
+
+        } catch (err) {
+            console.error('Error al enviar formulario:', err);
+            showToast('Hubo un error al enviar. Intentá de nuevo.', 'warning');
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
     };
 
     // ===== TOAST NOTIFICATION =====

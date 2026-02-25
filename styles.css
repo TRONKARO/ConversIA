@@ -221,9 +221,18 @@ img {
     font-size: 0.875rem;
 }
 
+/* Botón CTA del navbar — más grande y llamativo */
+.btn-nav-cta {
+    padding: 13px 28px;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 28px rgba(56, 189, 248, 0.45);
+}
+
 .btn-lg {
-    padding: 18px 40px;
-    font-size: 1.05rem;
+    padding: 20px 48px;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
 }
 
 .btn-glow {
@@ -1238,8 +1247,25 @@ img {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    max-width: 440px;
+    max-width: 520px;
     margin: 0 auto 20px;
+    width: 100%;
+}
+
+/* Fila de 2 inputs lado a lado */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Textarea mensaje */
+.cta-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
 }
 
 .cta-input {
@@ -1281,6 +1307,73 @@ img {
     color: var(--text-quaternary);
     margin-top: 8px;
 }
+
+/* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+.wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50px;
+    padding: 14px 20px 14px 18px;
+    text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 32px rgba(37, 211, 102, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    animation: wa-pulse 2.5s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.wa-float-label {
+    white-space: nowrap;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.4s ease, opacity 0.3s ease;
+}
+
+.wa-float:hover .wa-float-label {
+    max-width: 120px;
+    opacity: 1;
+}
+
+.wa-float:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes wa-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 6px 32px rgba(37, 211, 102, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 6px 44px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    .wa-float {
+        bottom: 20px;
+        right: 16px;
+        padding: 13px 16px;
+    }
+
+    .wa-float-label {
+        display: none;
+    }
+}
+
+
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1476,6 +1569,10 @@ img {
 @media (max-width: 480px) {
     .cta-form {
         padding: 0 8px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
     .hero-title {
