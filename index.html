@@ -31,6 +31,14 @@
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <!-- Init theme before paint to avoid flash -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('conversiaTheme');
+            // Default: light mode unless user explicitly chose dark
+            if (saved !== 'dark') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
 </head>
 
 <body>
@@ -52,6 +60,13 @@
                 <li><a href="#integraciones" class="nav-link">Tecnología</a></li>
                 <li><a href="#casos" class="nav-link">Casos de Uso</a></li>
                 <li><a href="#contacto" class="btn-primary btn-nav-cta btn-glow">Agendar Demo</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                        <span class="theme-toggle-knob">
+                            <span class="theme-toggle-icon" id="themeIcon">🌙</span>
+                        </span>
+                    </button>
+                </li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Menú">
                 <span></span><span></span><span></span>
@@ -61,6 +76,14 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-theme-toggle">
+            <button class="theme-toggle" id="themeToggleMobile" aria-label="Cambiar tema">
+                <span class="theme-toggle-knob">
+                    <span class="theme-toggle-icon" id="themeIconMobile">🌙</span>
+                </span>
+            </button>
+            <span id="themeLabel">Modo Claro</span>
+        </div>
         <a href="#servicios" class="mobile-link">Soluciones</a>
         <a href="#proceso" class="mobile-link">Proceso</a>
         <a href="#industrias" class="mobile-link">Industrias</a>

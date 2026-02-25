@@ -262,6 +262,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
+    // ===== THEME TOGGLE (Dark / Light Mode) =====
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeToggleMob = document.getElementById('themeToggleMobile');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeIconMob = document.getElementById('themeIconMobile');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            if (themeIcon) themeIcon.textContent = '☀️';
+            if (themeIconMob) themeIconMob.textContent = '☀️';
+            if (themeLabel) themeLabel.textContent = 'Modo Oscuro';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+            if (themeIconMob) themeIconMob.textContent = '🌙';
+            if (themeLabel) themeLabel.textContent = 'Modo Claro';
+        }
+        localStorage.setItem('conversiaTheme', theme);
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'light' ? 'dark' : 'light');
+    }
+
+    // Initialize icons based on saved theme (default: light)
+    const savedTheme = localStorage.getItem('conversiaTheme');
+    applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+    if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+    if (themeToggleMob) themeToggleMob.addEventListener('click', toggleTheme);
+
     // ===== UTILITY: DEBOUNCE =====
     function debounce(fn, wait) {
         let t;
