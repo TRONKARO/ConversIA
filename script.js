@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== PARTICLES =====
     const container = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 25; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
         p.style.left = Math.random() * 100 + '%';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const onScroll = debounce(() => {
         navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, 10);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // ===== HAMBURGER / MOBILE MENU =====
     const hamburger = document.getElementById('hamburger');
@@ -138,13 +138,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.3 });
     document.querySelectorAll('.case-card').forEach(c => metricObserver.observe(c));
 
-    // ===== PARALLAX on hero bg glow =====
+    // ===== PARALLAX on hero bg glow (via rAF to avoid layout thrashing) =====
     const heroBgGlow = document.querySelector('.hero-bg-glow');
-    window.addEventListener('scroll', debounce(() => {
-        if (heroBgGlow) {
-            heroBgGlow.style.transform = `translateX(-50%) translateY(${window.scrollY * 0.25}px)`;
+    if (heroBgGlow) {
+        let lastScrollY = window.scrollY;
+        let rafId = null;
+        function applyParallax() {
+            heroBgGlow.style.transform = `translateX(-50%) translateY(${lastScrollY * 0.25}px)`;
+            rafId = null;
         }
-    }, 5));
+        window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
+            if (!rafId) rafId = requestAnimationFrame(applyParallax);
+        }, { passive: true });
+    }
 
     // ===== CTA FORM SUBMIT → n8n webhook =====
     const N8N_WEBHOOK = 'https://troncarotest.app.n8n.cloud/webhook/retell-leads';

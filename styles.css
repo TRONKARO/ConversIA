@@ -3,8 +3,7 @@
    Color Principal: #38BDF8 (Sky Blue)
 ===================================================== */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+/* Google Fonts — loaded via <link> in HTML (no duplicated @import) */
 
 /* ===== CSS VARIABLES — DARK MODE (default) ===== */
 :root {
@@ -144,6 +143,7 @@ img {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    contain: strict;
 }
 
 .particle {
@@ -153,6 +153,8 @@ img {
     background: rgba(56, 189, 248, 0.6);
     border-radius: 50%;
     animation: float-particle 20s infinite ease-in-out;
+    will-change: transform, opacity;
+    contain: layout style;
 }
 
 @keyframes float-particle {
@@ -335,13 +337,14 @@ img {
 /* ===== GLASS CARD ===== */
 .glass-card {
     background: var(--grad-card);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
     border: 1px solid rgba(56, 189, 248, 0.12);
     border-radius: var(--radius-lg);
     padding: 32px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     transition: var(--transition);
+    will-change: transform;
 }
 
 .glass-card:hover {
@@ -426,7 +429,8 @@ img {
 
 .navbar.scrolled {
     background: var(--navbar-scrolled-bg);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(var(--primary-rgb), 0.1);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
     padding: 14px 0;
@@ -519,7 +523,8 @@ img {
     left: 0;
     right: 0;
     background: var(--mobile-menu-bg);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 80px 24px 40px;
     flex-direction: column;
     gap: 16px;
@@ -692,6 +697,7 @@ img {
     position: relative;
     animation: float 7s ease-in-out infinite;
     filter: drop-shadow(0 0 40px rgba(56, 189, 248, 0.3)) drop-shadow(0 0 80px rgba(56, 189, 248, 0.2));
+    will-change: transform;
 }
 
 .hero-img {
@@ -721,13 +727,15 @@ img {
     align-items: center;
     gap: 10px;
     background: var(--float-card-bg);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(var(--primary-rgb), 0.2);
     border-radius: var(--radius-md);
     padding: 12px 16px;
     font-size: 0.82rem;
     white-space: nowrap;
     animation: float 6s ease-in-out infinite;
+    will-change: transform;
 }
 
 .float-card strong {
